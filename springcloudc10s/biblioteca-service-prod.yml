@@ -1,0 +1,8 @@
+server:
+  port: ${PORT:8082}
+
+info:
+  app:
+    name: biblioteca-service
+    description: Biblioteca Service created for Class 10
+    version: 1.0.0

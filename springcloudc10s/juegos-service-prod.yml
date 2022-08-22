@@ -1,0 +1,8 @@
+server:
+  port: ${PORT:8081}
+
+info:
+  app:
+    name: juegos-service
+    description: Juegos Service created for Class 10
+    version: 1.0.0

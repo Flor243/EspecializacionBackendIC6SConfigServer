@@ -1,0 +1,31 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  cloud:
+    gateway:
+      default-filters:
+        - name: CountFilter
+      routes:
+        - id: bibliotecaRoute
+          uri: lb://biblioteca-service
+          predicates:
+            - Path=/bibliotecas/**
+          filters:
+            - AddRequestHeader=biblioteca-request-header, testing-headers
+            - AddResponseHeader=biblioteca-response-header, testing-response-header
+        - id: juegosRoute
+          uri: lb://juegos-service
+          predicates:
+            - Path=/juegos/**
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway
+info:
+  app:
+    name: gateway-service
+    description: Gateway Service created for Class 10
+    version: 1.0.0
