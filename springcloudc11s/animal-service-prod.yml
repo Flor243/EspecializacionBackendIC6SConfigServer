@@ -1,0 +1,8 @@
+server:
+  port: ${PORT:8081}
+
+info:
+  app:
+    name: animal-service
+    description: Animal Service created for Class 11
+    version: 1.0.0

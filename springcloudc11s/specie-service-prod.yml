@@ -1,0 +1,8 @@
+server:
+  port: ${PORT:8082}
+
+info:
+  app:
+    name: sepecie-service
+    description: Specie Service created for Class 11
+    version: 1.0.0

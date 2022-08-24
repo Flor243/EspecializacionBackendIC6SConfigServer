@@ -1,0 +1,31 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  cloud:
+    gateway:
+      default-filters:
+        - name: CountFilter
+      routes:
+        - id: specieRoute
+          uri: lb://specie-service
+          predicates:
+            - Path=/specie/**
+          filters:
+            - AddRequestHeader=specie-request-header, testing-headers
+            - AddResponseHeader=specie-response-header, testing-response-header
+        - id: animalRoute
+          uri: lb://animal-service
+          predicates:
+            - Path=/animal/**
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway
+info:
+  app:
+    name: gateway-service
+    description: Gateway Service created for Class 11
+    version: 1.0.0
