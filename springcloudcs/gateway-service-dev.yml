@@ -14,10 +14,14 @@ spring:
           filters:
             - AddRequestHeader=catalog-request-header, testing-headers
             - AddResponseHeader=catalog-response-header, testing-response-header
-        - id: animalRoute
+        - id: movieRoute
           uri: lb://movie-service
           predicates:
             - Path=/movies/**
+        - id: serieRoute
+          uri: lb://serie-service
+          predicates:
+            - Path=/series/**
 
 management:
   endpoints:
@@ -27,5 +31,5 @@ management:
 info:
   app:
     name: gateway-service
-    description: Gateway Service created for Class 12 Examen Parcial
+    description: Gateway Service created for Class on DH
     version: 1.0.0
