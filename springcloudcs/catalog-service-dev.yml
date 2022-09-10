@@ -6,3 +6,10 @@ info:
     name: catalog-service
     description: Catalog Service created for Class 12 Examen Parcial
     version: 1.0.0
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,circuitbreakers,circuitbreakerevents
