@@ -4,7 +4,7 @@ server:
 info:
   app:
     name: catalog-service
-    description: Catalog Service created for Class 12 Examen Parcial
+    description: Catalog Service created for Class on DH
     version: 1.0.0
 
 
