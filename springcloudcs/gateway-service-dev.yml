@@ -6,6 +6,7 @@ spring:
     gateway:
       default-filters:
         - name: CountFilter
+        - name: LoggingFilter
       routes:
         - id: catalogRoute
           uri: lb://catalog-service
