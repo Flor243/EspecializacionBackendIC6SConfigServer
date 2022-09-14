@@ -14,7 +14,11 @@ spring:
             - Path=/catalogs/**
           filters:
             - AddRequestHeader=catalog-request-header, testing-headers
-            - AddResponseHeader=catalog-response-header, testing-response-header           
+            - AddResponseHeader=catalog-response-header, testing-response-header
+            - name: CircuitBreaker
+              args:
+                name: catalogsService
+                fallbackUri: forward:/fallback/catalogs
         - id: movieRoute
           uri: lb://movie-service
           predicates:
